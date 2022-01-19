@@ -19,6 +19,11 @@ function CreateContent(props :any, {onSubmit}: FormProps) {
         e.preventDefault();
         // console.log('target', e.target.title.value);
         e.currentTarget.title.toString();
+        // 사이트 참조
+        // https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/forms_and_events/
+        const target = e.target typeof e.target && ({
+
+        });
         props.onSubmit(
             e.target.title.value,   //form 태그 내 name 속성 "title"로 접근
             e.target.desc.value     //form 태그 내 name 속성 "desc"로 접근
