@@ -10,7 +10,7 @@ function CreateContent(props :any, {onSubmit}: FormProps) {
         title: '',
         desc: ''
     });
-
+merge3 에서 수정한 내용 입니다요~
     /**
      * Form Submit EventHandler
      * @param e
