@@ -6,7 +6,7 @@ import CreateContent from './components/CreateContent';
 import UpdateContent from './components/UpdateContent';
 import Control from './components/Control';
 import {useState} from "react";
-
+asdfasdfasd
 interface Content{
   id:number,
   title:string,
