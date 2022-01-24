@@ -1,10 +1,11 @@
-import { Component } from "react"
+import React, { Component } from "react"
 
 interface Props{
     title:string,
     desc:string
 }
-function ReadContent(props:Props){
+const ReadContent = (props:Props) => {
+    console.log('[render]', 'ReadContent');
     return (
         <article>
             <h2>{props.title}</h2>
@@ -13,4 +14,4 @@ function ReadContent(props:Props){
     )
 }
 
-export default ReadContent;
+export default React.memo(ReadContent);

@@ -1,11 +1,12 @@
-import { Component } from "react"
+import React, { Component } from "react"
 
 interface Props{
     onChangePage: ()=>void
     title:string
     sub:string
 }
-function Subject(props:Props){
+const Subject = (props:Props) => {
+    console.log('[render]', 'Subject');
     return (
         <header>
             <h1><a href="#"onClick={function(e){
@@ -19,4 +20,4 @@ function Subject(props:Props){
     )
 }
 
-export default Subject;
+export default React.memo(Subject);

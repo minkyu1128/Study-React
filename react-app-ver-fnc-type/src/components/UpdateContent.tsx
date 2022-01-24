@@ -10,6 +10,9 @@ interface Props{
     onSubmit(content: any): void;
 }
 function UpdateContent(props:Props){
+    console.log('[render]', 'UpdateContent');
+
+
     const [state, setState] = useState<Content>({id: props.data.id, title: props.data.title, desc:props.data.desc});
 
     const inputFormHandler = (e:any ) => {

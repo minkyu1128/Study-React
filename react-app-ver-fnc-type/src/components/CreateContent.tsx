@@ -6,6 +6,8 @@ interface FormProps {
 }
 
 function CreateContent(props :any, {onSubmit}: FormProps) {
+    console.log('[render]', 'CreateContent');
+
     const [form, setForm] = useState({
         title: '',
         desc: ''

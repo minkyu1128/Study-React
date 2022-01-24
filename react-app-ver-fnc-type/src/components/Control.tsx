@@ -1,8 +1,10 @@
 import React from "react"
 
-
-function Control(props: any) {
-
+interface Props{
+    onChangeMode(mode:string):void
+}
+const Control = (props: Props) => {
+    console.log('[render]', 'Control');
     return (
         <ul>
             <li><a href="/create" onClick={function(e){

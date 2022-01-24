@@ -9,7 +9,10 @@ interface Props{
     data: Array<Content>
     onChangePage: (id:number)=>void
 }
-function Topic(props:Props){
+const Topic = React.memo(function Topic (props:Props) {
+    console.log('[render]', 'Topic');
+    console.log('props', props);
+
     let data:Array<Content> = props.data;
 
     //방법1. 배열출력
@@ -44,6 +47,6 @@ function Topic(props:Props){
             </ul>
         </nav>
     )
-}
+})
 
 export default Topic;
