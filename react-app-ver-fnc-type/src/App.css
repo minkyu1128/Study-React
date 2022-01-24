@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 } */
+
+/* ==============================================
+* FLEX SETTING
+============================================== */
+/* Flex - Container */
+div.App{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+/* Flex - Item */
+div.App > div.Header{
+    background-color: antiquewhite;
+    height: 10rem;
+}
+div.App > div.Body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+div.App > div.Body > div.BD-Nav{
+    background-color: cornflowerblue;
+    width: 10rem;
+}
+div.App > div.Body > div.BD-Content{
+    width: 30rem;
+    flex-grow: 1;
+    padding: 1rem;
+}
+div.App > div.Footer{
+    background-color: antiquewhite;
+    height: 10rem;
+}
+/* ==============================================
+* FLEX SETTING END
+============================================== */
+

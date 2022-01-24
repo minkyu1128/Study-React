@@ -101,49 +101,63 @@ function App():JSX.Element {
     }
     return (
         <div className="App">
-            <Subject title="WEB" sub="world wide web!!"
-                     onChangePage={function(){
-                         setMode('welcome');
-                     }}
-            ></Subject>
-            <Topic
-                data={contents}
-                onChangePage={function(id:number){
-                    setMode('read');
-                    // console.log('id is', id, typeof id);
-                    setSelected_content_id(Number(id)); //id type을 number로 지정 했음에도 string으로 넘어와 Number()함수를 사용하여 Cast
-                }}
-            ></Topic>
-            <Control onChangeMode={function(mode:string){
+            <div className="Header">
+                <Subject title="WEB" sub="world wide web!!"
+                         onChangePage={function(){
+                             setMode('welcome');
+                         }}
+                ></Subject>
+            </div>
 
-                if(mode === 'delete'){   //삭제 모드이면..
-                    if(!window.confirm('정말 삭제하시겠습니까??'))
-                        return false;
+            <div className="Body">
+                <div className="BD-Nav">
+                    <Topic
+                        data={contents}
+                        onChangePage={function(id:number){
+                            setMode('read');
+                            // console.log('id is', id, typeof id);
+                            setSelected_content_id(Number(id)); //id type을 number로 지정 했음에도 string으로 넘어와 Number()함수를 사용하여 Cast
+                        }}
+                    ></Topic>
+                </div>
+                <div className="BD-Content">
+                    <Control onChangeMode={function(mode:string){
 
-                    // 일치하는 자료 찾기
-                    let _contents:Array<Content> = Array.from(contents);
-                    let i = 0;
-                    while(i < _contents.length){
-                        if(_contents[i].id === selected_content_id){  //일치하는 자료면..
-                            _contents.splice(i, 1); //발견한 index로부터 1번째까지 삭제
-                            break;
+                        if(mode === 'delete'){   //삭제 모드이면..
+                            if(!window.confirm('정말 삭제하시겠습니까??'))
+                                return false;
+
+                            // 일치하는 자료 찾기
+                            let _contents:Array<Content> = Array.from(contents);
+                            let i = 0;
+                            while(i < _contents.length){
+                                if(_contents[i].id === selected_content_id){  //일치하는 자료면..
+                                    _contents.splice(i, 1); //발견한 index로부터 1번째까지 삭제
+                                    break;
+                                }
+                                i++;
+                            }
+
+                            //적용
+                            setContents(_contents);
+                            setMode('welcome');
+
+                            alert('deleted');
+
+                        } else {  //삭제 모드가 아니면..
+                            setMode(mode);
                         }
-                        i++;
-                    }
 
-                    //적용
-                    setContents(_contents);
-                    setMode('welcome');
+                    }}></Control>
 
-                    alert('deleted');
+                    {getContentByMode()}
+                </div>
 
-                } else {  //삭제 모드가 아니면..
-                    setMode(mode);
-                }
+            </div>
 
-            }}></Control>
-
-            {getContentByMode()}
+            <div className="Footer">
+                company is...
+            </div>
         </div>
     )
 
